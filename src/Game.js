@@ -15,7 +15,6 @@ function Game({ APIkey, points, addPoints, typedWords, setTypedWords, wordCount,
   const submitInput = e => {
     e.preventDefault();
     if (input === word) {
-      console.log('yay!');
       setInput('');
       fetchData();
       addPoints(points + word.length);
@@ -27,7 +26,7 @@ function Game({ APIkey, points, addPoints, typedWords, setTypedWords, wordCount,
 
   useEffect(() => {
     fetchData();
-  }, []); // Or [] if effect doesn't need props or state
+  }, []);
 
   return(
     <div className='card'>
