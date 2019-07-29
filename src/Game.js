@@ -14,12 +14,12 @@ function Game({ APIkey, points, addPoints, typedWords, setTypedWords, wordCount,
 
   const submitInput = e => {
     e.preventDefault();
-    if (input === word) {
+    if (input.toLowerCase() === word) {
       setInput('');
       fetchData();
       addPoints(points + word.length);
       setWordCount(wordCount + 1);
-      const newList = [...typedWords, input];
+      const newList = [...typedWords, input.toLowerCase()];
       setTypedWords(newList);
     }
   }
@@ -36,7 +36,7 @@ function Game({ APIkey, points, addPoints, typedWords, setTypedWords, wordCount,
         <input
         value={input}
         autoFocus={true}
-        style={{ color: input === word ? 'green' : 'black' }}
+        style={{ color: input.toLowerCase() === word ? 'green' : 'black' }}
         onChange={e => setInput(e.target.value)} ></input>
       </form>
       <h3>Score: {points}</h3>
